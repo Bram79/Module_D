@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Products')
+@section('title', 'sign up')
 
 @section('content')
-    <h1>Products</h1>
+    Winkelmandje
 @endsection

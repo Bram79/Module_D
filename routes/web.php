@@ -10,5 +10,14 @@ Route::get('/', function () {
 Route::view('/products', 'products')->name('products');
 Route::view('/contact', 'contact')->name('contact');
 
-Route::post('/signin', [AuthController::class, 'signin'])->name('signin');
-Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
+Route::post('/signin', [AuthController::class, 'signin']);
+Route::get('/signin', function () {
+    return view('signin');
+})->name('signin.form');
+
+Route::post('/signup', [AuthController::class, 'signup']);
+Route::get('/signup', function () {
+    return view('signup');
+})->name('signup.form');
+
+Route::view('/shoppingcard', 'shoppingcard')->name('shoppingcard');

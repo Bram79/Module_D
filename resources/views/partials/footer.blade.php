@@ -1,3 +1,3 @@
 <div class="footMain">
-    <p>Made by Yannick & Bram</p>
+    <p>Copyright &copy; 2025 | By Yannick & Bram</p>
 </div>

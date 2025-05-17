@@ -11,6 +11,13 @@ body {
     color: #111111;
 }
 
+.productsBox {
+    height: 300px;
+    width: 300px;
+    background-color: black;
+    border-radius: 10px;
+}
+
 /* Navbar css */
 
 .headUpper {
@@ -49,6 +56,7 @@ body {
 .headMain img {
     width: 120px;
     height: 120px;
+    -webkit-user-drag: none;
 }
 
 .headLinks a {
@@ -59,6 +67,11 @@ body {
     font-size: 17px;
 }
 
+.headLinks i {
+    margin: 5px;
+}
+
+.headerLinks i a:ho
 /* Header css */
 
 .headerMain img {
@@ -67,6 +80,7 @@ body {
     width: 80%;
     height: 800px;
     background-color: white;
+    -webkit-user-drag: none;
 }
 
 .headerMain {
@@ -85,4 +99,119 @@ body {
     color: white;
     align-items: center;
     justify-content: center;
+}
+
+/* Home css */
+
+.homeProducts {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Sign Modal */
+
+.popup {
+    width: 400px;
+    height: auto;
+    background: #ffffff;
+    border-radius: 6px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 30px;
+    color: #111;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    z-index: 9999;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    display: none;
+}
+
+/* form input en buttons */
+
+.modern-input {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.modern-input:focus {
+    border-color: #1e90ff;
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.2);
+    outline: none;
+}
+
+.modern-button {
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1e90ff;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.modern-button:hover {
+    background-color: #0f78d1;
+    transform: translateY(-2px);
+}
+
+.modern-button:active {
+    transform: translateY(1px);
+}
+
+.modern-Signupbutton {
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0fd076;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.modern-Signupbutton a {
+    text-decoration: none;
+    color: white;
+}
+
+.modern-Signupbutton:hover {
+    background-color: #0ebe66;
+    transform: translateY(-2px);
+}
+
+.modern-Signupbutton:active {
+    transform: translateY(1px);
 }

@@ -3,6 +3,21 @@
 @section('title', 'Home')
 
 @section('content')
-    <h1>Welkom op de Homepagina!</h1>
+    <p>Best Pre-orderderd</p>
+    <div class="homeProducts">
+        <div class="productsBox">
+
+        </div>
+        <div class="productsBox">
+
+        </div>
+        <div class="productsBox">
+
+        </div>
+    </div>
+    <p>Reviews</p>
+    <div class="homeReviews">
+
+    </div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 @endsection
