@@ -4,11 +4,22 @@
     box-sizing: border-box;
 }
 
+html,
 body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: whitesmoke;
-    color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainContent {
+    flex: 1; /* zorgt ervoor dat de content de beschikbare ruimte opvult */
+    margin-top: 135px; /* = 50px + 85px van je fixed navbar */
+    padding: 30px;
 }
 
 .productsBox {
@@ -71,7 +82,18 @@ body {
     margin: 5px;
 }
 
-.headerLinks i a:ho
+.logout-button {
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 1rem;
+}
+
+.logout-button:hover {
+    color: #e53e3e;
+}
 /* Header css */
 
 .headerMain img {
@@ -93,7 +115,7 @@ body {
     display: flex;
     left: 0;
     bottom: 0;
-    height: 60px;
+    min-height: 60px;
     width: 100%;
     background-color: #1e90ff;
     color: white;
@@ -149,6 +171,23 @@ body {
 
 /* form input en buttons */
 
+.modern-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.inputA {
+    color: black;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modern-form {
+    margin: auto;
+}
+
 .modern-input {
     width: 100%;
     padding: 14px 16px;
@@ -188,30 +227,30 @@ body {
     transform: translateY(1px);
 }
 
-.modern-Signupbutton {
+/* users-page */
+
+table {
+    border-collapse: collapse;
     width: 100%;
-    padding: 14px 16px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #1e90ff;
+    color: white;
+}
+
+.table-links {
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: #0fd076;
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.modern-Signupbutton a {
-    text-decoration: none;
-    color: white;
-}
-
-.modern-Signupbutton:hover {
-    background-color: #0ebe66;
-    transform: translateY(-2px);
-}
-
-.modern-Signupbutton:active {
-    transform: translateY(1px);
 }

@@ -1,23 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\DashboardController;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', fn() => view('home'))->name('home');
 
 Route::view('/products', 'products')->name('products');
 Route::view('/contact', 'contact')->name('contact');
-
-Route::post('/signin', [AuthController::class, 'signin']);
-Route::get('/signin', function () {
-    return view('signin');
-})->name('signin.form');
-
-Route::post('/signup', [AuthController::class, 'signup']);
-Route::get('/signup', function () {
-    return view('signup');
-})->name('signup.form');
-
 Route::view('/shoppingcard', 'shoppingcard')->name('shoppingcard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('users', UserController::class);
+});
+
+require __DIR__ . '/auth.php';
+

@@ -3,6 +3,9 @@
 @section('title', 'Home')
 
 @section('content')
+    <header class="headerMain">
+        <img src="{{ asset('assets/images/Header.png') }}" alt="Header">
+    </header>
     <p>Best Pre-orderderd</p>
     <div class="homeProducts">
         <div class="productsBox">
@@ -19,5 +22,5 @@
     <div class="homeReviews">
 
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 @endsection
