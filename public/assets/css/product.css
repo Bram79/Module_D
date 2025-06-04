@@ -1,0 +1,131 @@
+/* Products */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 30px;
+}
+
+.product-card {
+    display: block;
+    background-color: white;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    max-width: 250px;
+}
+
+.product-card:hover {
+    transform: scale(1.01);
+}
+
+.product-card img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+    display: block;
+}
+
+.product-info {
+    padding: 12px 10px;
+    text-align: left;
+}
+
+.product-name {
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 13px;
+    color: #666;
+}
+
+.product-show {
+    display: flex;
+    gap: 40px;
+    padding: 60px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.product-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-left h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.product-left img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-right {
+    flex: 1;
+    min-width: 300px;
+    height: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.product-right p {
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #333;
+}
+
+.product-button {
+    display: inline-block;
+    width: 175px;
+    text-align: center;
+    padding: 12px 20px;
+    background-color: #f9b200;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.product-button:hover {
+    background-color: #f9dc00;
+}
+
+.product-button2 {
+    display: inline-block;
+    width: 175px;
+    text-align: center;
+    padding: 12px 20px;
+    background-color: #1e90ff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.product-button2:hover {
+    background-color: #1a6aba;
+}
+
+.product-review {
+}

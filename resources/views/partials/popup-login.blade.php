@@ -1,5 +1,4 @@
 <div class="popup" id="popup-signin">
-    <span class="close" onclick="closeAllPopups()">&times;</span>
     <h1>Sign In</h1>
 
     @if ($errors->has('email') || $errors->has('password'))

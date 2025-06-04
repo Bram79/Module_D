@@ -40,7 +40,7 @@ class UserController extends Controller
 
         $user->fill($validated)->save();
 
-        return Redirect::route('admin.users.index')->with('success', 'Gebruiker bijgewerkt!');
+        return Redirect::route('admin.users.index');
     }
 
     /**
@@ -50,6 +50,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return Redirect::route('admin.users.index')->with('success', 'Gebruiker verwijderd!');
+        return Redirect::route('admin.users.index');
     }
 }

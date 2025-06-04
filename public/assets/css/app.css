@@ -14,19 +14,13 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
 .mainContent {
-    flex: 1; /* zorgt ervoor dat de content de beschikbare ruimte opvult */
-    margin-top: 135px; /* = 50px + 85px van je fixed navbar */
+    flex: 1;
+    margin-top: 135px;
     padding: 30px;
-}
-
-.productsBox {
-    height: 300px;
-    width: 300px;
-    background-color: black;
-    border-radius: 10px;
 }
 
 /* Navbar css */
@@ -71,11 +65,19 @@ body {
 }
 
 .headLinks a {
+    transform-origin: center center;
     text-decoration: none;
     color: white;
     padding: 10px;
     font-weight: 600;
     font-size: 17px;
+    transition: 0.3s ease;
+}
+
+.headLinks a:hover {
+    color: whitesmoke;
+    border: 1px solid #ffffffa7;
+    border-radius: 5px;
 }
 
 .headLinks i {
@@ -85,27 +87,30 @@ body {
 .logout-button {
     border: none;
     background-color: transparent;
-    color: #ffffff;
+    color: #000000;
     cursor: pointer;
     padding: 6px 12px;
     font-size: 1rem;
 }
 
 .logout-button:hover {
-    color: #e53e3e;
+    color: #1e90ff;
+    border: 1px solid #ffffffa7;
+    border-radius: 5px;
 }
 /* Header css */
 
 .headerMain img {
-    display: block;
-    margin: auto;
-    width: 80%;
-    height: 800px;
-    background-color: white;
+    width: 70%;
+    height: 40%;
+    object-fit: cover;
     -webkit-user-drag: none;
 }
 
 .headerMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
 }
 
@@ -121,15 +126,6 @@ body {
     color: white;
     align-items: center;
     justify-content: center;
-}
-
-/* Home css */
-
-.homeProducts {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 30px;
 }
 
 /* Sign Modal */
@@ -180,8 +176,7 @@ body {
 .inputA {
     color: black;
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
+    margin-right: 20px;
 }
 
 .modern-form {
@@ -232,12 +227,17 @@ body {
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed; /* Belangrijk voor gelijke kolombreedtes */
 }
 
 th,
 td {
     text-align: left;
     padding: 8px;
+    height: 60px; /* Vaste hoogte */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Zorgt dat het niet op nieuwe regel springt */
 }
 
 tr:nth-child(even) {
@@ -253,4 +253,61 @@ th {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+/* Dashboard  */
+
+.modern-dashboard {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.dashboard-box {
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+
+/* dropdown */
+
+.dropbtn {
+    background-color: #1e90ff;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    color: #1e90ff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    transform: scale(1.1);
 }

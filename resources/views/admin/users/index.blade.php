@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Users')
 
@@ -6,8 +6,9 @@
     <table>
         <thead>
             <tr>
-                <th>Naam</th>
+                <th>Name</th>
                 <th>Email</th>
+                <th>Is admin(1)</th>
                 <th>Acties</th>
             </tr>
         </thead>
@@ -16,13 +17,14 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>{{ $user->is_admin}}</td>
                     <td>
-                        <a class="btn btn-success btn-sm" href="{{ route('admin.users.edit', $user) }}">Bewerk</a>
+                        <a class="btn btn-success btn-sm" href="{{ route('admin.users.edit', $user) }}">Edit</a>
                         <form action="{{ route('admin.users.destroy', $user) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm" type="submit"
-                                onclick="return confirm('Weet je zeker dat je deze gebruiker wilt verwijderen?')">Verwijder</button>
+                                onclick="return confirm('Are u sure u want to delete this account!')">Delete</button>
                         </form>
                     </td>
                 </tr>

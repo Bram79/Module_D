@@ -1,0 +1,112 @@
+/* admin css */
+.admin-layout {
+    display: flex;
+    height: 100vh;
+}
+
+.admin-nav {
+    height: 100%;
+    width: 175px;
+    background-color: #1e90ff;
+    border-radius: 2px;
+    padding: 10px 0;
+    position: fixed;
+}
+
+/* main.admin {
+    margin-left: 175px;
+} */
+
+.admin-nav img {
+    display: block;
+    margin: auto;
+    width: 120px;
+    height: 120px;
+    -webkit-user-drag: none;
+}
+
+.AdminheadLinks a {
+    display: block;
+    margin-bottom: 10px;
+    transform-origin: center center;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 17px;
+    transition: transform 0.3s ease;
+}
+
+.AdminheadLinks a:hover {
+    color: whitesmoke;
+    border: 1px solid #ffffffa7;
+    border-radius: 5px;
+}
+
+.AdminheadLinks i {
+    margin: 5px;
+}
+
+.admin-content {
+    margin-left: 175px;
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-boxes {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.adminBox {
+    width: 300px;
+    height: 200px;
+    background-color: whitesmoke;
+}
+
+#file {
+    display: none;
+}
+
+#fileImage {
+    width: 200px;
+    height: 50px;
+    background-color: #1e90ff;
+    color: white;
+
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    transition: 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#fileImage:hover {
+    transform: scale(0.95);
+    background-color: #10579e;
+}
+
+.image-preview-container {
+    margin: 20px 0;
+}
+
+.image-preview-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.image-preview-container img {
+    max-width: 100%;
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}

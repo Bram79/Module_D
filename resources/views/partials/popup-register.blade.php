@@ -1,5 +1,4 @@
 <div class="popup" id="popup-signup">
-    <span class="close" onclick="closeAllPopups()">&times;</span>
     <h1>Sign Up</h1>
 
     @if ($errors->any())
