@@ -18,9 +18,12 @@
 
         </div>
     </div>
-    <p>Reviews</p>
-    <div class="homeReviews">
-
-    </div>
+    @if (session('showPopup'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                openPopup('{{ session('showPopup') }}');
+            });
+        </script>
+    @endif
 
 @endsection

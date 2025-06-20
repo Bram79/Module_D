@@ -24,10 +24,13 @@
         <label>Description:</label>
         <textarea name="description" class="modern-input"></textarea>
 
+        <label>Over Product:</label>
+        <textarea name="overProduct" class="modern-input"></textarea>
+
         <label>Price (€):</label>
         <input type="number" name="price" step="0.01" class="modern-input" required>
 
-        <label id="fileImage" for="file">New picture</label>
+        <label id="fileImage" for="file">picture</label>
         <input type="file" id="file" name="image" accept="image/*">
 
         <button class="modern-button" type="submit">Save</button>

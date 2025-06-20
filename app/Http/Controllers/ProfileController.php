@@ -34,7 +34,6 @@ class ProfileController extends Controller
             $user->email_verified_at = null;
         }
 
-        // Wachtwoord update (optioneel)
         if ($request->filled('password')) {
             $request->validate([
                 'current_password' => ['required', 'current_password'],

@@ -1,5 +1,4 @@
 <div class="popup" id="popup-forgotpassword">
-    <span class="close" onclick="closeAllPopups()">&times;</span>
     <h1>Forgot Password</h1>
 
     <p class="text-description">

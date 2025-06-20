@@ -22,6 +22,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'description' => 'nullable|string',
+            'overProduct' => 'nullable|string',
             'price' => 'required|numeric',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
@@ -37,7 +38,27 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
+        $product->load('reviews');
+        $product->averageRating = round($product->reviews()->avg('rating'), 1);
         return view('products.show', compact('product'));
     }
+
+    public function addToCart(Request $request, Product $product)
+    {
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$product->id])) {
+            $cart[$product->id]['quantity']++;
+        } else {
+            $cart[$product->id] = [
+                'name' => $product->name,
+                'price' => $product->price,
+                'quantity' => 1,
+            ];
+        }
+
+        return redirect()->back();
+    }
+
 
 }

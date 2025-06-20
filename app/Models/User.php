@@ -47,11 +47,20 @@ class User extends Authenticatable
         ];
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 
 
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new CustomResetPassword($token));
+    }
+
+    public function cartItems()
+    {
+        return $this->hasMany(Cart::class);
     }
 
 }

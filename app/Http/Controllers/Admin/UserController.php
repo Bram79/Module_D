@@ -11,26 +11,20 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
-    /**
-     * Toon overzicht van gebruikers.
-     */
+
     public function index(): View
     {
         $users = User::paginate(50);
         return view('admin.users.index', compact('users'));
     }
 
-    /**
-     * Toon formulier om gebruiker te bewerken.
-     */
+
     public function edit(User $user): View
     {
         return view('admin.users.edit', compact('user'));
     }
 
-    /**
-     * Update een bestaande gebruiker.
-     */
+
     public function update(Request $request, User $user): RedirectResponse
     {
         $validated = $request->validate([
@@ -43,9 +37,7 @@ class UserController extends Controller
         return Redirect::route('admin.users.index');
     }
 
-    /**
-     * Verwijder een gebruiker.
-     */
+
     public function destroy(User $user): RedirectResponse
     {
         $user->delete();

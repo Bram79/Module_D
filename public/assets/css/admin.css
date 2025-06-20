@@ -5,11 +5,13 @@
 }
 
 .admin-nav {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     width: 175px;
     background-color: #1e90ff;
     border-radius: 2px;
-    padding: 10px 0;
+    padding: 1rem;
     position: fixed;
 }
 
@@ -25,8 +27,14 @@
     -webkit-user-drag: none;
 }
 
+.AdminheadLinks {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 .AdminheadLinks a {
-    display: block;
+    display: flex;
     margin-bottom: 10px;
     transform-origin: center center;
     text-decoration: none;
@@ -62,9 +70,26 @@
 }
 
 .adminBox {
-    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     height: 200px;
+    padding: 30px;
     background-color: whitesmoke;
+}
+
+.admin-boxes p {
+    font-size: 40px;
+}
+
+.admin-boxes h5 {
+    font-weight: 200;
+}
+
+.admin-boxes i {
+    font-size: 40px;
+    color: #1e90ff;
 }
 
 #file {
@@ -109,4 +134,8 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     object-fit: cover;
+}
+
+.logout-push-botom {
+    margin-top: auto;
 }

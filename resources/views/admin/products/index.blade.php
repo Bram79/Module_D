@@ -6,7 +6,8 @@
     <table>
         <thead>
             <tr>
-                <th>Name</th>
+                <th><a href="{{ route('products.create') }}"><i class="fa-solid fa-plus"
+                            style="color: rgb(255, 255, 255); "></i></a> Name</th>
                 <th>Price</th>
                 <th>Over Product</th>
                 <th>Description</th>

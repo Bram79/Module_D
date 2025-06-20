@@ -27,12 +27,12 @@ class CustomResetPassword extends Notification
         ], false));
 
         return (new MailMessage)
-            ->subject('Wachtwoord Reset Verzoek')
-            ->greeting('Hallo!')
-            ->line('Je hebt aangegeven dat je je wachtwoord vergeten bent.')
-            ->action('Klik hier om je wachtwoord te resetten', $url)
-            ->line('Als je dit niet hebt aangevraagd, hoef je niets te doen.')
-            ->salutation("Met vriendelijke groet,\n\nHet Team van Pre-Order");
+            ->subject('Reset your password')
+            ->greeting('Hello!')
+            ->line('You have requested a password reset.')
+            ->action('Click here to reset your password', url(route('password.reset', $this->token, false)))
+            ->line('If you did not request this, no further action is required.')
+            ->salutation('Kind regards, Pre-Order Team');
 
     }
 }
