@@ -25,7 +25,7 @@
                         <span style="color: #888;"> &nbsp; | &nbsp; Rating: {{ $product->averageRating }} / 5 &#9733;</span>
                     @endif
                 </p>
-                <p>{{ $product->overProduct }}</p>
+                <p>{{ $product->description}}</p>
                 <hr>
 
                 @auth
@@ -41,7 +41,8 @@
 
                 <hr>
                 <h4>Description</h4>
-                <p>{{ $product->description}}</p>
+
+                <p>{{ $product->overProduct }}</p>
             </div>
         </div>
 

@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\ProductController;
@@ -16,7 +17,7 @@ use App\Http\Controllers\Admin\AdminProductController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', fn() => view('home'))->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('/contact', 'contact')->name('contact');
 
 /*
@@ -80,6 +81,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
     Route::resource('users', UserController::class);
     Route::resource('products', AdminProductController::class);
+    Route::get('/payments', [AdminController::class, 'adminOrders'])->name('payments');
+
+
 
 });
 
@@ -90,7 +94,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 */
 
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('checkout');
-Route::get('/succes', [StripeController::class, 'succes'])->name('checkout.succes');
+Route::get('/checkout/succes', [StripeController::class, 'succes'])->name('checkout.succes');
 
 
 /*

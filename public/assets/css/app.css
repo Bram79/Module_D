@@ -52,7 +52,7 @@ body {
     padding: 10px;
     font-weight: 600;
     font-size: 17px;
-    transition: 0.9ms ease;
+    transition: 0.3s ease;
 }
 
 .headLinks a:hover {
@@ -84,7 +84,7 @@ body {
 .dropbtn {
     background-color: #1e90ff;
     color: white;
-    padding: 16px;
+    padding: 5px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -120,7 +120,9 @@ body {
 }
 
 .dropdown:hover .dropbtn {
-    transform: scale(1.1);
+    color: whitesmoke;
+    border: 1px solid #ffffffa7;
+    border-radius: 5px;
 }
 
 .logout-button {
@@ -164,6 +166,30 @@ body {
     color: white;
     align-items: center;
     justify-content: center;
+}
+
+.prefooter-banner {
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.prefooter-banner p {
+    margin: 0;
+}
+
+.prefooter-link {
+    color: #007bff;
+    text-decoration: underline;
+    margin-left: 6px;
+}
+
+.prefooter-link:hover {
+    color: #0056b3;
+    text-decoration: none;
 }
 
 /* Sign Modal */

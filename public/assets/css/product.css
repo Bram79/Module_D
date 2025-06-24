@@ -3,8 +3,23 @@
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 30px;
+    gap: 50px;
     padding: 30px;
+}
+
+.products-grid2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 50px;
+    padding: 30px;
+}
+
+@media (max-width: 70%) {
+    .products-grid2 {
+        justify-content: flex-start;
+    }
 }
 
 .product-card {

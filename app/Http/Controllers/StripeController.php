@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Stripe\Stripe;
 use App\Models\Cart;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Stripe\Checkout\Session;
+use Illuminate\Support\Facades\DB;
 
 class StripeController extends Controller
 {
@@ -40,9 +42,11 @@ class StripeController extends Controller
                 'payment_method_types' => ['card'],
                 'line_items' => $lineItems,
                 'mode' => 'payment',
-                'success_url' => route('checkout.succes'),
-                'cancel_url' => url()->previous(),
+                'success_url' => route('checkout.succes') . '?session_id={CHECKOUT_SESSION_ID}',
+                'cancel_url' => route('cart.show'),
             ]);
+
+
 
             return redirect($session->url, 303);
         } catch (\Exception $e) {
@@ -52,8 +56,37 @@ class StripeController extends Controller
 
     public function succes()
     {
-        Cart::where('user_id', auth()->id())->delete();
-        return view('shoppingcart');
+        $user = auth()->user();
+
+        $cartItems = $user->cartItems;
+
+        if ($cartItems->isEmpty()) {
+            return view('shoppingcart')->with('message', 'No items in cart.');
+        }
+
+        $order = null;
+
+        DB::transaction(function () use ($user, $cartItems, &$order) {
+            $totalPrice = $cartItems->reduce(function ($carry, $item) {
+                return $carry + ($item->product->price * $item->quantity);
+            }, 0);
+
+            $order = Order::create([
+                'user_id' => $user->id,
+                'status' => 'completed',
+                'total_price' => $totalPrice,
+            ]);
+
+            foreach ($cartItems as $item) {
+                $order->products()->attach($item->product_id, ['quantity' => $item->quantity]);
+            }
+
+            Cart::where('user_id', $user->id)->delete();
+        });
+
+        return view('shoppingcart', [
+            'order' => $order
+        ]);
     }
 
 

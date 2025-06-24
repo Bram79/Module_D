@@ -2,12 +2,12 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
+use Stripe\Stripe;
 use App\Models\User;
 use App\Models\Product;
-use Stripe\Stripe;
 use Stripe\PaymentIntent;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -26,7 +26,8 @@ class ViewServiceProvider extends ServiceProvider
     {
         View::composer('layouts.admin', function ($view) {
 
-            Stripe::setApiKey(env('STRIPE_SECRET'));
+            Stripe::setApiKey(config('services.stripe.secret'));
+
 
             $paymentIntents = PaymentIntent::all(['limit' => 100]);
             $totalRevenue = 0;
@@ -47,4 +48,6 @@ class ViewServiceProvider extends ServiceProvider
             ]);
         });
     }
+
+
 }

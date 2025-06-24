@@ -1,29 +1,48 @@
 @extends('layouts.admin')
 
-@section('title', 'Oders admin')
+@section('title', 'Orders Admin')
 
 @section('content')
-    <h2>Payments</h2>
 
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Amount</th>
+                <th>User ID</th>
+                <th>Order ID</th>
                 <th>Status</th>
-                <th>Ordered</th>
+                <th>Total Price</th>
+                <th>Products</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($paymentIntents->data as $payment)
-                <tr>
-                    <td>{{ $payment->id }}</td>
-                    <td>€{{ $payment->amount / 100 }}</td>
-                    <td>{{ $payment->status }}</td>
-                    <td>{{ \Carbon\Carbon::createFromTimestamp($payment->created)->toDateTimeString() }}</td>
-                </tr>
+            @foreach ($orders as $order)
+                    <tr>
+                        <td>{{ $order->user->id }}</td>
+                        <td>{{ $order->id }}</td>
+                        <td>{{ $order->status }}</td>
+                        <td>
+                            €{{ number_format(
+                    $order->products->reduce(function ($carry, $product) {
+                        return $carry + ($product->price * $product->pivot->quantity); }, 0),
+                    2,
+                    ',',
+                    '.'
+                ) }}
+                        </td>
+                        <td>
+                            <details>
+                                <summary>View products</summary>
+                                <ul>
+                                    @foreach ($order->products as $product)
+                                        <li>
+                                            {{ $product->name }} (x{{ $product->pivot->quantity }})
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </details>
+                        </td>
+                    </tr>
             @endforeach
         </tbody>
     </table>
-
 @endsection
